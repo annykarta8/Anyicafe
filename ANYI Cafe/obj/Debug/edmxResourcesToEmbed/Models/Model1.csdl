@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="anyicafeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="anyicafeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Payments" EntityType="anyicafeModel.Payments" />
+    <EntitySet Name="Shippings" EntityType="anyicafeModel.Shippings" />
+    <EntitySet Name="Propertys" EntityType="anyicafeModel.Propertys" />
+    <EntitySet Name="ProductsProperty" EntityType="anyicafeModel.ProductsProperty" />
+    <EntitySet Name="Carts" EntityType="anyicafeModel.Carts" />
+    <EntitySet Name="OrdersDetail" EntityType="anyicafeModel.OrdersDetail" />
+    <EntitySet Name="city" EntityType="anyicafeModel.city" />
+    <EntitySet Name="district" EntityType="anyicafeModel.district" />
+    <EntitySet Name="road" EntityType="anyicafeModel.road" />
+    <EntitySet Name="Orders" EntityType="anyicafeModel.Orders" />
+    <EntitySet Name="user" EntityType="anyicafeModel.user" />
+    <EntitySet Name="Status" EntityType="anyicafeModel.Status" />
+    <EntitySet Name="Categorys" EntityType="anyicafeModel.Categorys" />
+    <EntitySet Name="product" EntityType="anyicafeModel.product" />
+    <EntitySet Name="vendor" EntityType="anyicafeModel.vendor" />
+  </EntityContainer>
+  <EntityType Name="Payments">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Shippings">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Propertys">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mvalue" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ProductsProperty">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="product_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="property_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="text_value" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Carts">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="lot_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="product_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="product_spec" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="qty" Type="Int32" />
+    <Property Name="price" Type="Int32" />
+    <Property Name="amount" Type="Int32" />
+    <Property Name="crete_time" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="OrdersDetail">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="order_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="vendor_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="category_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="product_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="product_spec" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="price" Type="Int32" />
+    <Property Name="qty" Type="Int32" />
+    <Property Name="amount" Type="Int32" />
+    <Property Name="remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="city">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="city1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="district">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="district1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="road">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="district" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="road1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="order_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="order_date" Type="DateTime" Precision="3" />
+    <Property Name="order_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="payment_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="shipping_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="receive_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="receive_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="receive_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="receive_address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="amounts" Type="Int32" />
+    <Property Name="taxs" Type="Int32" />
+    <Property Name="totals" Type="Int32" />
+    <Property Name="remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="order_guid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="order_closed" Type="Int32" />
+    <Property Name="order_validate" Type="Int32" />
+    <Property Name="msg" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="uid" />
+    </Key>
+    <Property Name="uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="uno" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="uemail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="upw" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="uname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ubirth" Type="DateTime" Precision="0" />
+    <Property Name="utel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="uaddr" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="urole" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="uremark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="is_valid" Type="Boolean" Nullable="false" />
+    <Property Name="verifycode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Categorys">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="parentid" Type="Int32" />
+    <Property Name="category_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="category_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="categoryid" Type="Int32" />
+    <Property Name="category_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="product_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="product_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="price" Type="Int32" />
+    <Property Name="product_spec" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="product_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="product_public" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vendor">
+    <Key>
+      <PropertyRef Name="vid" />
+    </Key>
+    <Property Name="vid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vno" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="vname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="vtaxno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="vtel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="vemail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="vaddr" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="vrate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="vremark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

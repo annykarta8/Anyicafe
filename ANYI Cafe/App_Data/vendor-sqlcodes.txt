@@ -1,0 +1,94 @@
+USE [anyicafe]
+GO
+IF  EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'vendor', N'COLUMN',N'vrate'))
+EXEC sys.sp_dropextendedproperty @name=N'MS_Description' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'vendor', @level2type=N'COLUMN',@level2name=N'vrate'
+GO
+IF  EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'vendor', N'COLUMN',N'vaddr'))
+EXEC sys.sp_dropextendedproperty @name=N'MS_Description' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'vendor', @level2type=N'COLUMN',@level2name=N'vaddr'
+GO
+IF  EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'vendor', N'COLUMN',N'vemail'))
+EXEC sys.sp_dropextendedproperty @name=N'MS_Description' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'vendor', @level2type=N'COLUMN',@level2name=N'vemail'
+GO
+IF  EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'vendor', N'COLUMN',N'vtel'))
+EXEC sys.sp_dropextendedproperty @name=N'MS_Description' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'vendor', @level2type=N'COLUMN',@level2name=N'vtel'
+GO
+IF  EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'vendor', N'COLUMN',N'vtaxno'))
+EXEC sys.sp_dropextendedproperty @name=N'MS_Description' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'vendor', @level2type=N'COLUMN',@level2name=N'vtaxno'
+GO
+IF  EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'vendor', N'COLUMN',N'vname'))
+EXEC sys.sp_dropextendedproperty @name=N'MS_Description' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'vendor', @level2type=N'COLUMN',@level2name=N'vname'
+GO
+IF  EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'vendor', N'COLUMN',N'vno'))
+EXEC sys.sp_dropextendedproperty @name=N'MS_Description' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'vendor', @level2type=N'COLUMN',@level2name=N'vno'
+GO
+IF  EXISTS (SELECT * FROM sys.fn_listextendedproperty(N'MS_Description' , N'SCHEMA',N'dbo', N'TABLE',N'vendor', N'COLUMN',N'vid'))
+EXEC sys.sp_dropextendedproperty @name=N'MS_Description' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'vendor', @level2type=N'COLUMN',@level2name=N'vid'
+GO
+/****** Object:  Table [dbo].[vendor]    Script Date: 2021/6/29 下午 03:05:39 ******/
+DROP TABLE IF EXISTS [dbo].[vendor]
+GO
+/****** Object:  Table [dbo].[vendor]    Script Date: 2021/6/29 下午 03:05:39 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[vendor](
+	[vid] [int] IDENTITY(1,1) NOT NULL,
+	[vno] [nvarchar](10) NULL,
+	[vname] [nvarchar](50) NULL,
+	[vtaxno] [nvarchar](50) NULL,
+	[vtel] [nvarchar](50) NULL,
+	[vemail] [nvarchar](50) NULL,
+	[vaddr] [nvarchar](250) NULL,
+	[vrate] [nvarchar](50) NULL,
+	[vremark] [nvarchar](250) NULL,
+ CONSTRAINT [PK_vendor] PRIMARY KEY CLUSTERED 
+(
+	[vid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[vendor] ON 
+GO
+INSERT [dbo].[vendor] ([vid], [vno], [vname], [vtaxno], [vtel], [vemail], [vaddr], [vrate], [vremark]) VALUES (1, N'V0001', N'安逸公司', N'12345678', N'0912345678', N'anyico@gmail.com', N'桃園市安逸路123號', N'A', NULL)
+GO
+INSERT [dbo].[vendor] ([vid], [vno], [vname], [vtaxno], [vtel], [vemail], [vaddr], [vrate], [vremark]) VALUES (2, N'V0002', N'歡樂公司', N'12345679', N'0912345679', N'happyco@gmail.com', N'桃園市安逸路456號', N'B', NULL)
+GO
+INSERT [dbo].[vendor] ([vid], [vno], [vname], [vtaxno], [vtel], [vemail], [vaddr], [vrate], [vremark]) VALUES (3, N'V0003', N'咖啡公司', N'12345680', N'0912345680', N'cafeco@gmail.com', N'桃園市安逸路789號', N'A', NULL)
+GO
+INSERT [dbo].[vendor] ([vid], [vno], [vname], [vtaxno], [vtel], [vemail], [vaddr], [vrate], [vremark]) VALUES (4, N'V0004', N'甜點公司', N'12345681', N'0912345681', N'dessertco@gmail.com', N'桃園市安逸路810號', N'A', NULL)
+GO
+INSERT [dbo].[vendor] ([vid], [vno], [vname], [vtaxno], [vtel], [vemail], [vaddr], [vrate], [vremark]) VALUES (5, N'V0005', N'測試一公司', N'12345677', N'02-12345678', N'test01co@gmail.com', N'測試一', N'C', NULL)
+GO
+INSERT [dbo].[vendor] ([vid], [vno], [vname], [vtaxno], [vtel], [vemail], [vaddr], [vrate], [vremark]) VALUES (6, N'V0006', N'測試二公司', N'12345676', N'02-12345679', N'test02co@gmail.com', N'測試二', N'C', NULL)
+GO
+INSERT [dbo].[vendor] ([vid], [vno], [vname], [vtaxno], [vtel], [vemail], [vaddr], [vrate], [vremark]) VALUES (7, N'V0007', N'測試三公司', N'12345675', N'02-12345680', N'test03co@gmail.com', N'測試三', N'C', NULL)
+GO
+INSERT [dbo].[vendor] ([vid], [vno], [vname], [vtaxno], [vtel], [vemail], [vaddr], [vrate], [vremark]) VALUES (9, N'V0009', N'測試五公司', N'12345673', N'02-12345682', N'test05co@gmail.com', N'測試五', N'C', N'可刪')
+GO
+INSERT [dbo].[vendor] ([vid], [vno], [vname], [vtaxno], [vtel], [vemail], [vaddr], [vrate], [vremark]) VALUES (10, N'V0010', N'測試六公司', N'12345672', N'02-12345683', N'test06co@gmail.com', N'測試六測試六', N'C', NULL)
+GO
+INSERT [dbo].[vendor] ([vid], [vno], [vname], [vtaxno], [vtel], [vemail], [vaddr], [vrate], [vremark]) VALUES (11, N'V0011', N'測試七公司', N'12345671', N'02-12345684', N'test07co@gmail.com', N'測試七', N'B', N'test07')
+GO
+INSERT [dbo].[vendor] ([vid], [vno], [vname], [vtaxno], [vtel], [vemail], [vaddr], [vrate], [vremark]) VALUES (12, N'V0012', N'測試十一公司', N'12345611', N'02-12345611', N'test11co@gmail.com', N'測試十一測試十一', N'B', N'test11')
+GO
+INSERT [dbo].[vendor] ([vid], [vno], [vname], [vtaxno], [vtel], [vemail], [vaddr], [vrate], [vremark]) VALUES (14, N'V0013', N'測試十四公司', N'12345614', N'02-12345614', N'test14co@gmail.com', N'測試十四測試十四', N'B', N'test14')
+GO
+SET IDENTITY_INSERT [dbo].[vendor] OFF
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'廠商流水號' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'vendor', @level2type=N'COLUMN',@level2name=N'vid'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'廠商編號' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'vendor', @level2type=N'COLUMN',@level2name=N'vno'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'廠商名稱' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'vendor', @level2type=N'COLUMN',@level2name=N'vname'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'統一編號' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'vendor', @level2type=N'COLUMN',@level2name=N'vtaxno'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'電話' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'vendor', @level2type=N'COLUMN',@level2name=N'vtel'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'電子信箱' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'vendor', @level2type=N'COLUMN',@level2name=N'vemail'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'廠商地址' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'vendor', @level2type=N'COLUMN',@level2name=N'vaddr'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'廠商等級' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'vendor', @level2type=N'COLUMN',@level2name=N'vrate'
+GO

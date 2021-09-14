@@ -1,0 +1,47 @@
+USE [anyicafe]
+GO
+/****** Object:  Table [dbo].[Status]    Script Date: 2021/06/20 星期日 下午 04:00:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Status]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[Status](
+	[rowid] [int] IDENTITY(1,1) NOT NULL,
+	[mno] [nvarchar](50) NULL,
+	[mname] [nvarchar](50) NULL,
+	[remark] [nvarchar](250) NULL,
+ CONSTRAINT [PK_Status] PRIMARY KEY CLUSTERED 
+(
+	[rowid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET IDENTITY_INSERT [dbo].[Status] ON 
+GO
+INSERT [dbo].[Status] ([rowid], [mno], [mname], [remark]) VALUES (1, N'ON', N'已下單未付款', N'已下單')
+GO
+INSERT [dbo].[Status] ([rowid], [mno], [mname], [remark]) VALUES (2, N'PP', N'已付款處理中', N'處理中')
+GO
+INSERT [dbo].[Status] ([rowid], [mno], [mname], [remark]) VALUES (3, N'DS', N'已出貨未到店', N'已出貨')
+GO
+INSERT [dbo].[Status] ([rowid], [mno], [mname], [remark]) VALUES (4, N'SR', N'已到店未領取', N'未領取')
+GO
+INSERT [dbo].[Status] ([rowid], [mno], [mname], [remark]) VALUES (5, N'PN', N'未付款處理中', N'處理中')
+GO
+INSERT [dbo].[Status] ([rowid], [mno], [mname], [remark]) VALUES (6, N'CP', N'已領取已付款', N'已領取')
+GO
+INSERT [dbo].[Status] ([rowid], [mno], [mname], [remark]) VALUES (7, N'OP', N'已下單已付款', N'已下單')
+GO
+INSERT [dbo].[Status] ([rowid], [mno], [mname], [remark]) VALUES (8, N'DU', N'已出貨未到府', N'已出貨')
+GO
+INSERT [dbo].[Status] ([rowid], [mno], [mname], [remark]) VALUES (9, N'HD', N'訂單保留', N'保留中')
+GO
+INSERT [dbo].[Status] ([rowid], [mno], [mname], [remark]) VALUES (10, N'OR', N'取消訂單', N'取消訂單')
+GO
+INSERT [dbo].[Status] ([rowid], [mno], [mname], [remark]) VALUES (11, N'RT', N'已退貨', N'已退貨')
+GO
+SET IDENTITY_INSERT [dbo].[Status] OFF
+GO

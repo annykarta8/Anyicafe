@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="anyicafeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Carts">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="lot_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="user_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="product_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="product_name" Type="nvarchar" MaxLength="250" />
+    <Property Name="product_spec" Type="nvarchar" MaxLength="250" />
+    <Property Name="qty" Type="int" />
+    <Property Name="price" Type="int" />
+    <Property Name="amount" Type="int" />
+    <Property Name="crete_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Categorys">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="parentid" Type="int" />
+    <Property Name="category_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="category_name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="city">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="city" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="district">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="city" Type="nvarchar" MaxLength="50" />
+    <Property Name="district" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="order_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="order_date" Type="datetime" />
+    <Property Name="order_status" Type="nvarchar" MaxLength="50" />
+    <Property Name="user_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="payment_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="shipping_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="receive_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="receive_email" Type="nvarchar" MaxLength="50" />
+    <Property Name="receive_phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="receive_address" Type="nvarchar" MaxLength="250" />
+    <Property Name="amounts" Type="int" />
+    <Property Name="taxs" Type="int" />
+    <Property Name="totals" Type="int" />
+    <Property Name="remark" Type="nvarchar" MaxLength="250" />
+    <Property Name="order_guid" Type="nvarchar" MaxLength="50" />
+    <Property Name="order_closed" Type="int" />
+    <Property Name="order_validate" Type="int" />
+    <Property Name="msg" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="OrdersDetail">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="order_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="vendor_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="category_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="product_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="product_name" Type="nvarchar" MaxLength="250" />
+    <Property Name="product_spec" Type="nvarchar" MaxLength="250" />
+    <Property Name="price" Type="int" />
+    <Property Name="qty" Type="int" />
+    <Property Name="amount" Type="int" />
+    <Property Name="remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Payments">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mno" Type="nvarchar" MaxLength="50" />
+    <Property Name="mname" Type="nvarchar" MaxLength="50" />
+    <Property Name="remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="categoryid" Type="int" />
+    <Property Name="category_name" Type="nvarchar" MaxLength="250" />
+    <Property Name="product_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="product_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="price" Type="int" />
+    <Property Name="product_spec" Type="nvarchar" MaxLength="50" />
+    <Property Name="product_img" Type="nvarchar(max)" />
+    <Property Name="product_public" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductsProperty">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="property_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="text_value" Type="nvarchar" MaxLength="500" />
+    <Property Name="remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Propertys">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mno" Type="nvarchar" MaxLength="50" />
+    <Property Name="mname" Type="nvarchar" MaxLength="50" />
+    <Property Name="mvalue" Type="nvarchar" MaxLength="500" />
+    <Property Name="remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="road">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="city" Type="nvarchar" MaxLength="50" />
+    <Property Name="district" Type="nvarchar" MaxLength="50" />
+    <Property Name="road" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Shippings">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mno" Type="nvarchar" MaxLength="50" />
+    <Property Name="mname" Type="nvarchar" MaxLength="50" />
+    <Property Name="remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="rowid" />
+    </Key>
+    <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mno" Type="nvarchar" MaxLength="50" />
+    <Property Name="mname" Type="nvarchar" MaxLength="50" />
+    <Property Name="remark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="uid" />
+    </Key>
+    <Property Name="uid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uno" Type="nvarchar" MaxLength="10" />
+    <Property Name="uemail" Type="nvarchar" MaxLength="50" />
+    <Property Name="upw" Type="nvarchar" MaxLength="50" />
+    <Property Name="uname" Type="nvarchar" MaxLength="50" />
+    <Property Name="ubirth" Type="date" />
+    <Property Name="utel" Type="nvarchar" MaxLength="50" />
+    <Property Name="uaddr" Type="nvarchar" MaxLength="250" />
+    <Property Name="urole" Type="nvarchar" MaxLength="50" />
+    <Property Name="uremark" Type="nvarchar" MaxLength="250" />
+    <Property Name="is_valid" Type="bit" Nullable="false" />
+    <Property Name="verifycode" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="vendor">
+    <Key>
+      <PropertyRef Name="vid" />
+    </Key>
+    <Property Name="vid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="vno" Type="nvarchar" MaxLength="10" />
+    <Property Name="vname" Type="nvarchar" MaxLength="50" />
+    <Property Name="vtaxno" Type="nvarchar" MaxLength="50" />
+    <Property Name="vtel" Type="nvarchar" MaxLength="50" />
+    <Property Name="vemail" Type="nvarchar" MaxLength="50" />
+    <Property Name="vaddr" Type="nvarchar" MaxLength="250" />
+    <Property Name="vrate" Type="nvarchar" MaxLength="50" />
+    <Property Name="vremark" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityContainer Name="anyicafeModelStoreContainer">
+    <EntitySet Name="Carts" EntityType="Self.Carts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categorys" EntityType="Self.Categorys" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="city" EntityType="Self.city" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="district" EntityType="Self.district" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrdersDetail" EntityType="Self.OrdersDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payments" EntityType="Self.Payments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductsProperty" EntityType="Self.ProductsProperty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Propertys" EntityType="Self.Propertys" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="road" EntityType="Self.road" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Shippings" EntityType="Self.Shippings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vendor" EntityType="Self.vendor" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

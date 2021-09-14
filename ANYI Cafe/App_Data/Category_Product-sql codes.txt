@@ -1,0 +1,130 @@
+USE [anyicafe]
+GO
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[product]') AND type in (N'U'))
+ALTER TABLE [dbo].[product] DROP CONSTRAINT IF EXISTS [DF_product_product_public]
+GO
+/****** Object:  Table [dbo].[product]    Script Date: 2021/7/1 上午 09:56:21 ******/
+DROP TABLE IF EXISTS [dbo].[product]
+GO
+/****** Object:  Table [dbo].[Categorys]    Script Date: 2021/7/1 上午 09:56:21 ******/
+DROP TABLE IF EXISTS [dbo].[Categorys]
+GO
+/****** Object:  Table [dbo].[Categorys]    Script Date: 2021/7/1 上午 09:56:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Categorys](
+	[rowid] [int] IDENTITY(1,1) NOT NULL,
+	[parentid] [int] NULL,
+	[category_no] [nvarchar](50) NULL,
+	[category_name] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Categorys] PRIMARY KEY CLUSTERED 
+(
+	[rowid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[product]    Script Date: 2021/7/1 上午 09:56:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[product](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[categoryid] [int] NULL,
+	[category_name] [nvarchar](250) NULL,
+	[product_no] [nvarchar](50) NULL,
+	[product_name] [nvarchar](50) NULL,
+	[price] [int] NULL,
+	[product_spec] [nvarchar](50) NULL,
+	[product_img] [nvarchar](max) NULL,
+	[product_public] [bit] NOT NULL,
+ CONSTRAINT [PK_product] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Categorys] ON 
+GO
+INSERT [dbo].[Categorys] ([rowid], [parentid], [category_no], [category_name]) VALUES (1, 0, N'A', N'甜點類')
+GO
+INSERT [dbo].[Categorys] ([rowid], [parentid], [category_no], [category_name]) VALUES (2, 0, N'B', N'咖啡類')
+GO
+INSERT [dbo].[Categorys] ([rowid], [parentid], [category_no], [category_name]) VALUES (3, 0, N'C', N'週邊商品')
+GO
+INSERT [dbo].[Categorys] ([rowid], [parentid], [category_no], [category_name]) VALUES (4, 1, N'A01', N'經典檸檬塔派')
+GO
+INSERT [dbo].[Categorys] ([rowid], [parentid], [category_no], [category_name]) VALUES (5, 1, N'A02', N'瘋狂黑巧克力')
+GO
+INSERT [dbo].[Categorys] ([rowid], [parentid], [category_no], [category_name]) VALUES (6, 1, N'A03', N'草莓華爾滋')
+GO
+INSERT [dbo].[Categorys] ([rowid], [parentid], [category_no], [category_name]) VALUES (7, 1, N'A04', N'巧克力禮盒')
+GO
+INSERT [dbo].[Categorys] ([rowid], [parentid], [category_no], [category_name]) VALUES (8, 1, N'A05', N'瑪德蓮禮盒')
+GO
+INSERT [dbo].[Categorys] ([rowid], [parentid], [category_no], [category_name]) VALUES (9, 2, N'B01', N'水洗中淺焙咖啡豆')
+GO
+INSERT [dbo].[Categorys] ([rowid], [parentid], [category_no], [category_name]) VALUES (10, 2, N'B02', N'水洗深焙咖啡豆')
+GO
+INSERT [dbo].[Categorys] ([rowid], [parentid], [category_no], [category_name]) VALUES (11, 2, N'B03', N'水洗淺焙咖啡豆')
+GO
+INSERT [dbo].[Categorys] ([rowid], [parentid], [category_no], [category_name]) VALUES (12, 3, N'C01', N'手沖咖啡壺')
+GO
+INSERT [dbo].[Categorys] ([rowid], [parentid], [category_no], [category_name]) VALUES (13, 3, N'C02', N'手沖咖啡濾杯')
+GO
+INSERT [dbo].[Categorys] ([rowid], [parentid], [category_no], [category_name]) VALUES (15, 3, N'C04', N'手沖咖啡濾紙')
+GO
+INSERT [dbo].[Categorys] ([rowid], [parentid], [category_no], [category_name]) VALUES (16, 3, N'C05', N'蛋糕週邊')
+GO
+INSERT [dbo].[Categorys] ([rowid], [parentid], [category_no], [category_name]) VALUES (17, NULL, NULL, NULL)
+GO
+SET IDENTITY_INSERT [dbo].[Categorys] OFF
+GO
+SET IDENTITY_INSERT [dbo].[product] ON 
+GO
+INSERT [dbo].[product] ([id], [categoryid], [category_name], [product_no], [product_name], [price], [product_spec], [product_img], [product_public]) VALUES (1, NULL, N'A01', N'001', N'經典檸檬塔派', 400, N'6吋', N'../Images/Product/001/001.jpg', 1)
+GO
+INSERT [dbo].[product] ([id], [categoryid], [category_name], [product_no], [product_name], [price], [product_spec], [product_img], [product_public]) VALUES (2, NULL, N'A02', N'002', N'瘋狂黑巧克力', 360, N'6吋', N'../Images/Product/002/002.jpg', 1)
+GO
+INSERT [dbo].[product] ([id], [categoryid], [category_name], [product_no], [product_name], [price], [product_spec], [product_img], [product_public]) VALUES (3, NULL, N'A03', N'003', N'草莓華爾滋', 490, N'6吋', N'../Images/Product/003/003.jpg', 1)
+GO
+INSERT [dbo].[product] ([id], [categoryid], [category_name], [product_no], [product_name], [price], [product_spec], [product_img], [product_public]) VALUES (7, NULL, N'B01', N'004', N'水洗中淺焙咖啡豆', 280, N'300g', N'../Images/Product/004/004.jpg', 1)
+GO
+INSERT [dbo].[product] ([id], [categoryid], [category_name], [product_no], [product_name], [price], [product_spec], [product_img], [product_public]) VALUES (8, NULL, N'B02', N'005', N'水洗深焙咖啡豆', 280, N'300g', N'../Images/Product/005/005.jpg', 1)
+GO
+INSERT [dbo].[product] ([id], [categoryid], [category_name], [product_no], [product_name], [price], [product_spec], [product_img], [product_public]) VALUES (10, NULL, N'B03', N'006', N'水洗淺焙咖啡豆', 280, N'300g', N'../Images/Product/006/006.jpg', 1)
+GO
+INSERT [dbo].[product] ([id], [categoryid], [category_name], [product_no], [product_name], [price], [product_spec], [product_img], [product_public]) VALUES (12, NULL, NULL, N'007', N'經典檸檬塔派', 480, N'8吋', NULL, 0)
+GO
+INSERT [dbo].[product] ([id], [categoryid], [category_name], [product_no], [product_name], [price], [product_spec], [product_img], [product_public]) VALUES (13, NULL, NULL, N'008', N'瘋狂黑巧克力', 400, N'8吋', NULL, 0)
+GO
+INSERT [dbo].[product] ([id], [categoryid], [category_name], [product_no], [product_name], [price], [product_spec], [product_img], [product_public]) VALUES (14, NULL, NULL, N'009', N'草莓華爾滋', 510, N'8吋', NULL, 0)
+GO
+INSERT [dbo].[product] ([id], [categoryid], [category_name], [product_no], [product_name], [price], [product_spec], [product_img], [product_public]) VALUES (21, NULL, N'A05', N'011', N'瑪德蓮禮盒', 145, N'一般', NULL, 1)
+GO
+INSERT [dbo].[product] ([id], [categoryid], [category_name], [product_no], [product_name], [price], [product_spec], [product_img], [product_public]) VALUES (24, NULL, N'C02', N'013', N'手沖咖啡濾杯', 180, N'一般', NULL, 1)
+GO
+INSERT [dbo].[product] ([id], [categoryid], [category_name], [product_no], [product_name], [price], [product_spec], [product_img], [product_public]) VALUES (25, NULL, N'C02', N'014', N'造型咖啡濾杯', 199, N'一般', NULL, 1)
+GO
+INSERT [dbo].[product] ([id], [categoryid], [category_name], [product_no], [product_name], [price], [product_spec], [product_img], [product_public]) VALUES (28, NULL, N'A04', N'010', N'巧克力禮盒', 180, N'一般', NULL, 1)
+GO
+INSERT [dbo].[product] ([id], [categoryid], [category_name], [product_no], [product_name], [price], [product_spec], [product_img], [product_public]) VALUES (29, NULL, N'C01', N'012', N'手沖咖啡壺', 360, N'不鏽鋼', NULL, 1)
+GO
+INSERT [dbo].[product] ([id], [categoryid], [category_name], [product_no], [product_name], [price], [product_spec], [product_img], [product_public]) VALUES (30, NULL, N'C04', N'015', N'手沖咖啡濾紙', 30, N'10張', NULL, 1)
+GO
+INSERT [dbo].[product] ([id], [categoryid], [category_name], [product_no], [product_name], [price], [product_spec], [product_img], [product_public]) VALUES (31, NULL, NULL, N'016', N'手沖咖啡濾紙', 55, N'30張', NULL, 0)
+GO
+INSERT [dbo].[product] ([id], [categoryid], [category_name], [product_no], [product_name], [price], [product_spec], [product_img], [product_public]) VALUES (32, NULL, N'C05', N'017', N'愛心蛋糕盤叉組', 15, N'寶寶藍', NULL, 1)
+GO
+INSERT [dbo].[product] ([id], [categoryid], [category_name], [product_no], [product_name], [price], [product_spec], [product_img], [product_public]) VALUES (33, NULL, NULL, N'018', N'愛心蛋糕盤叉組', 15, N'寶寶粉', NULL, 0)
+GO
+INSERT [dbo].[product] ([id], [categoryid], [category_name], [product_no], [product_name], [price], [product_spec], [product_img], [product_public]) VALUES (34, NULL, N'C05', N'019', N'金色銀色條紋蠟燭 ', 20, N'一般', NULL, 1)
+GO
+INSERT [dbo].[product] ([id], [categoryid], [category_name], [product_no], [product_name], [price], [product_spec], [product_img], [product_public]) VALUES (37, NULL, N'C05', N'020', N'HappyBirthday蛋糕插卡', 20, N'如圖', NULL, 1)
+GO
+SET IDENTITY_INSERT [dbo].[product] OFF
+GO
+ALTER TABLE [dbo].[product] ADD  CONSTRAINT [DF_product_product_public]  DEFAULT ((0)) FOR [product_public]
+GO
